@@ -28,18 +28,46 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false"> <span sec:authentication="principal.username"></span></a>
                     <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                        <li><a class="dropdown-item" th:href="@{/user/home}" >Home</a></li>
+                        <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
                         <li><a class="dropdown-item" href="#">Admin Dashboard</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Log out</a></li>
+                        <li><a class="dropdown-item" th:href="@{/logut}">Log out</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<!--<nav class="navbar navbar-expand-lg navbar-dark shadow-sm">-->
+<!--    <div class="container-fluid">-->
+<!--        <a class=" brand" th:href="@{/}">muffin.</a>-->
+<!--        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">-->
+<!--            <ul class="navbar-nav  mb-2 mb-lg-0 d-flex">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="btn btn-secondary shadow-sm" aria-current="page" href="#">Support</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="btn btn-secondary shadow-sm" aria-current="page" href="#">Track Funds</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"-->
+<!--                       data-bs-toggle="dropdown" aria-expanded="false"> <span sec:authentication="principal.username"></span></a>-->
+<!--                    <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">-->
+<!--                        <li><a class="dropdown-item" href="#">Dashboard</a></li>-->
+<!--                        <li><a class="dropdown-item" href="#">Admin Dashboard</a></li>-->
+<!--                        <li>-->
+<!--                            <hr class="dropdown-divider">-->
+<!--                        </li>-->
+<!--                        <li><a class="dropdown-item" th:href="@{/logout}">Log out</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 <main class="main">
     <div class="jumbotron shadow mx-5">
         <h1 class="display-4">Welcome <span>Sai SriHarsha Griddaluru</span></h1>
