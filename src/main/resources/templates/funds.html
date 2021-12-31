@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" th:href="@{/css/funds.css}">
+        <title>Muffin - Funds</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+            <div class="container-fluid">
+                <a class=" brand" href="#">muffin.</a>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-fill mb-2 mb-lg-0 d-flex">
+                        <li class="nav-item">
+                            <a class="btn btn-secondary shadow-sm" aria-current="page" href="#">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary shadow-sm" aria-current="page"
+                                th:href="@{/mutual-funds/list}">Track Funds</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary shadow-sm" aria-current="page" href="#">Signup</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false"> <span
+                                    sec:authentication="principal.username"></span></a>
+                            <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" th:href="@{/user/home}">Home</a></li>
+                                <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="#">Admin Dashboard</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" th:href="@{/logout}">Log out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <content>
+            <div class="row funds-panel">
+                <div class="card filters col-2 ">
+                    <form action="">
+                        <div class="filter-title card-header"> Fliter Options </div>
+                        <div class="filter-body card-body">
+                            <div class="filter-option">
+                                <label class="filter-label">Fund Type</label>
+                                <br>
+                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">
+                                    <option selected></option>
+                                    <option value="1">Equity</option>
+                                    <option value="2">NICE</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="filter-option">
+                                <label class="filter-label">Sort Type</label>
+                                <br>
+                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">
+                                    <option selected></option>
+                                    <option value="1">Equity</option>
+                                    <option value="2">NICE</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="filter-option">
+                                <label class="filter-label">Category</label>
+                                <br>
+                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">
+                                    <option selected></option>
+                                    <option value="1">Equity</option>
+                                    <option value="2">NICE</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="filter-option">
+                                <label class="filter-label">Sub-Category</label>
+                                <br>
+                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">
+                                    <option selected></option>
+                                    <option value="1">Equity</option>
+                                    <option value="2">NICE</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="filter-option">
+                                <label class="filter-label">Plan</label>
+                                <br>
+                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">
+                                    <option selected></option>
+                                    <option value="1">Equity</option>
+                                    <option value="2">NICE</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="filter-option">
+                                <label class="filter-label">Fund House</label>
+                                <br>
+                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">
+                                    <option selected></option>
+                                    <option value="1">Equity</option>
+                                    <option value="2">NICE</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <div style="margin: 0px 10px;" class="filter-form-submit btn  btn-secondary">Filter</div>
+                </div>
+                <div class="funds col-9 card">
+                    <div class="funds-title card-header">Mutual Funds</div>
+                    <div th:each="fund: ${fundx}">
+                        <div style="margin:10px auto" class="fund card col-11">
+                            <div class="fund-content row">
+                                <div class="title col-7">
+                                    <div class="fund-data">
+                                        <p class="fund-name" th:text="${fund.getName()}"></p>
+                                        <div class=" sub-details">
+                                            <span th:text="${fund.getCategory()}" class=""></span> - <span
+                                                th:text="${fund.getSubCategory()}" class=""></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" returns col-4">
+                                    <div class="col-4 return mx-3 my">
+                                        <label>1Y</label>
+                                        <hr>
+                                        <p th:text="${fund.getReturns().getOneY()}">%</p>
+                                    </div>
+                                    <div class="col-4 return mx-3">
+                                        <label>1Y</label>
+                                        <hr>
+                                        <p th:text="${fund.getReturns().getThreeY()}">%</p>
+                                    </div>
+                                    <div class="col-4 return mx-3">
+                                        <label>1Y</label>
+                                        <hr>
+                                        <p th:text="${fund.getReturns().getFiveY()}">%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </content>
+    </body>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script>
+
+</html>
