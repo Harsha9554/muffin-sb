@@ -3,13 +3,14 @@ package com.haven.web;
 import com.haven.model.MutualFund;
 import com.haven.repository.MutualFundRepository;
 import com.haven.service.MutualFundService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("mutual-funds")
@@ -31,6 +32,18 @@ public class MutualFundsController {
         temp.add(mutualFundList.get(2));
         model.addAttribute("fundx",temp);
         return "funds";
+    }
+
+    @RequestMapping("/list/{code}")
+    public String getFund(@PathVariable("code") String code, Model model) {
+        MutualFund m2 = mutualFundRepository.getMutualFundByCode(code);
+        System.out.println(m2.getName());
+        if(m2 != null) {
+            model.addAttribute("funx",m2);
+            return "fund";
+        } else {
+            return "redirect:fund?error";
+        }
     }
 
 }

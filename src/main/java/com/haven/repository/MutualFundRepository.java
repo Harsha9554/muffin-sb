@@ -9,5 +9,6 @@ import java.util.List;
 public interface MutualFundRepository extends CrudRepository<MutualFund, String> {
     @Query("SELECT m from MutualFund m")
     List<MutualFund> getAllFunds();
+    MutualFund getMutualFundByCode(String code);
 }
 
