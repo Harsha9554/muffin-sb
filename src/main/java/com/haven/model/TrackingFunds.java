@@ -18,9 +18,12 @@ public class TrackingFunds {
     private String fundCode;
     @Column
     private Long userId;
+    @Column
+    private String fundName;
 
-    public TrackingFunds(Long userId, String fundCode) {
+    public TrackingFunds(Long userId, String fundCode, String fundName) {
         this.userId = userId;
         this.fundCode = fundCode;
+        this.fundName = fundName;
     }
 }

@@ -93,13 +93,17 @@
                         <table class="table" >
                             <thead>
                             <tr>
+                                <th class="th" scope="col">Tracking ID</th>
                                 <th class="th" scope="col">Code</th>
+                                <th class="th" scope="col">Fund Name</th>
                                 <th class="th" scope="col"></th>
                             </tr>
                             </thead>
                             <tbody th:each="tfund: ${tfundx}">
                             <tr>
+                                <th class="th" scope="col" th:text="${tfund.getId()}">S.No</th>
                                 <th scope="row" th:text="${tfund.getFundCode()}">ABCED-GH</th>
+                                <th class="th" scope="col" th:text="${tfund.getFundName()}">Code</th>
                                 <th scope="row"><span><a class="btn btn-secondary" th:href="@{/mutual-funds/list/__${tfund.getFundCode()}__}">View Fund</a></span></th>
                             </tr>
                             </tbody>

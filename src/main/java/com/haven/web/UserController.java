@@ -2,8 +2,10 @@ package com.haven.web;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.haven.model.MutualFund;
 import com.haven.model.TrackingFunds;
 import com.haven.model.User;
+import com.haven.repository.MutualFundRepository;
 import com.haven.repository.TrackingFundsRepository;
 import com.haven.repository.UserRepository;
 
@@ -20,10 +22,12 @@ import java.util.List;
 public class UserController {
     private UserRepository userRepository;
     private TrackingFundsRepository trackingFundsRepository;
+    private MutualFundRepository mutualFundRepository;
 
-    public UserController(UserRepository userRepository, TrackingFundsRepository trackingFundsRepository) {
+    public UserController(UserRepository userRepository, TrackingFundsRepository trackingFundsRepository, MutualFundRepository mutualFundRepository) {
         this.userRepository = userRepository;
         this.trackingFundsRepository = trackingFundsRepository;
+        this.mutualFundRepository = mutualFundRepository;
     }
 
     @GetMapping("/home")
@@ -50,7 +54,8 @@ public class UserController {
     public String addFundToUser(Model model, HttpServletRequest req, @PathVariable("code") String code) {
         String email = req.getUserPrincipal().getName();
         User user = userRepository.findByEmail(email);
-        TrackingFunds t = new TrackingFunds(user.getId(), code);
+        MutualFund m = mutualFundRepository.getMutualFundByCode(code);
+        TrackingFunds t = new TrackingFunds(user.getId(), code, m.getName());
         trackingFundsRepository.save(t);
         return dashboard(model, req);
     }
