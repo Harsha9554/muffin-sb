@@ -32,7 +32,6 @@
             <!--                       data-bs-toggle="dropdown" aria-expanded="false"> Profile </a>-->
             <!--                    <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">-->
             <!--                        <li><a class="dropdown-item" href="#">Dashboard</a></li>-->
-            <!--                        <li><a class="dropdown-item" href="#">Admin Dashboard</a></li>-->
             <!--                        <li>-->
             <!--                            <hr class="dropdown-divider">-->
             <!--                        </li>-->
@@ -89,10 +88,10 @@
               <input type="password" id="password" class="form-control" th:field="*{password}" required=""
                 autofocus="autofocus">
             </div>
-            <div class="form-group submit my-2">
+            <div class="form-group submit my-4">
               <button type="submit" class="btn btn-secondary">Register</button>
               <br>
-              <div class="log">Already registered? <a href="/" class="ar">Login here</a></div>
+              <div class="log my-2">Already registered? <a th:href="@{/login}" style="color: #fbd46d" class="">Login here</a></div>
             </div>
           </form>
         </div>

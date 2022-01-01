@@ -32,7 +32,6 @@
                             <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" th:href="@{/user/home}">Home</a></li>
                                 <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
-                                <li><a class="dropdown-item" href="#">Admin Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -43,10 +42,12 @@
                 </div>
             </div>
         </nav>
-        <main class="main">
+        <main class="main" th:object="${userx}">
             <div class="jumbotron shadow mx-5">
-                <h1 class="display-4">Welcome <span>Sai SriHarsha Griddaluru</span></h1>
-                <p class="jumbo-text">Here are the funds listings that you are tracking.</p>
+                <h1 class="display-4">Welcome <span th:text="${userx.getCompleteName()}">Sai SriHarsha Griddaluru</span>
+                </h1>
+                <!-- <h4> Role: <span th:text="${userx.getOneRole()}"></span></h4> -->
+                <p class="jumbo-text">This is your Home page.</p>
             </div>
             <!--    <div class="card shadow mx-5">-->
             <!--        <div class="card-header">Funds Tracking</div>-->

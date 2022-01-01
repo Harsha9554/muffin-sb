@@ -99,4 +99,18 @@ public class User {
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+    public String getCompleteName() {
+        return this.getFirstName() + " " + this.getLastName();
+    }
+
+    public String getOneRole() {
+        String req;
+        int n;
+        List<Role> roles = (List<Role>) this.getRoles();
+        n = roles.size();
+        req = roles.get(n-1).getName();
+        return req;
+
+    }
 }

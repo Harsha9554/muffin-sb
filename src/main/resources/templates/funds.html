@@ -15,7 +15,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
             <div class="container-fluid">
-                <a class=" brand" href="#">muffin.</a>
+                <a class=" brand" th:href="@{/}">muffin.</a>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-fill mb-2 mb-lg-0 d-flex">
                         <li class="nav-item">
@@ -26,7 +26,7 @@
                                 th:href="@{/mutual-funds/list}">Track Funds</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-secondary shadow-sm" aria-current="page" href="#">Signup</a>
+                            <a class="btn btn-secondary shadow-sm" aria-current="page" th:href="@{/signup}">Signup</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -35,7 +35,6 @@
                             <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" th:href="@{/user/home}">Home</a></li>
                                 <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
-                                <li><a class="dropdown-item" href="#">Admin Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -138,12 +137,12 @@
                                         <p th:text="${fund.getReturns().getOneY()}">%</p>
                                     </div>
                                     <div class="col-4 return mx-3">
-                                        <label>1Y</label>
+                                        <label>3Y</label>
                                         <hr>
                                         <p th:text="${fund.getReturns().getThreeY()}">%</p>
                                     </div>
                                     <div class="col-4 return mx-3">
-                                        <label>1Y</label>
+                                        <label>5Y</label>
                                         <hr>
                                         <p th:text="${fund.getReturns().getFiveY()}">%</p>
                                     </div>
