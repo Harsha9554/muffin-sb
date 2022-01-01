@@ -155,3 +155,8 @@ ul.actionlist li {
     border-color: #41444b;
 }
 /*# sourceMappingURL=dashboard.css.map */
+
+.display-nf {
+    font-size: 32px;
+    font-weight: 800;
+}

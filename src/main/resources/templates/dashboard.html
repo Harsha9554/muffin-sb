@@ -82,29 +82,30 @@
                 <p class="jumbo-text">Here are the funds listings that you are tracking.</p>
             </div>
             <div class="card shadow mx-5">
-                <div class="card-header">Funds Tracking</div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
+                <div class="card-header" th:object="${tfundx}">Funds Tracking</div>
+<!--                <label>TF SIZE</label>-->
+<!--                <h1 th:text="${tfundx.size()}"></h1>-->
+                <div th:if="${tfundx.size() == 0}">
+                    <p class="my-4 mx-4 display-nf">No Funds Tracking</p>
+                </div>
+                <div th:if="${tfundx.size() > 0}">
+                    <div class="card-body">
+                        <table class="table" >
+                            <thead>
                             <tr>
                                 <th class="th" scope="col">Code</th>
-                                <th class="th" scope="col">Fund Name</th>
                                 <th class="th" scope="col"></th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody th:each="tfund: ${tfundx}">
                             <tr>
-                                <th scope="row">ABCED-GH</th>
-                                <th scope="row">Aditya Mutual Funds</th>
-                                <th scope="row"><span><a class="btn btn-secondary" href="">View Fund</a></span></th>
+                                <th scope="row" th:text="${tfund.getFundCode()}">ABCED-GH</th>
+                                <th scope="row"><span><a class="btn btn-secondary" th:href="@{/mutual-funds/list/__${tfund.getFundCode()}__}">View Fund</a></span></th>
                             </tr>
-                            <tr>
-                                <th scope="row">ABCED-GH</th>
-                                <th scope="row">Aditya Mutual Funds</th>
-                                <th scope="row"><span><a class="btn btn-secondary" href="">View Fund</a></span></th>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </main>
