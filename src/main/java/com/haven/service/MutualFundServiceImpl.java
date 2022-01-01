@@ -3,6 +3,9 @@ package com.haven.service;
 import com.haven.model.MutualFund;
 import com.haven.repository.MutualFundRepository;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +25,12 @@ public class MutualFundServiceImpl implements MutualFundService {
     public Optional<MutualFund> getFundByCode(String code) {
         return mutualFundRepository.findById(code);
     }
+
+//    @Override
+//    public Page<MutualFund> findPage(int pageNumber) {
+//        Pageable pageable = PageRequest.of(pageNumber - 1, 5);
+//        return mutualFundRepository.getAllFunds(pageable);
+//    }
 
 
     // @Override

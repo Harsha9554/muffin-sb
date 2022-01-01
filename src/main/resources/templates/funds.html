@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity5">
 
     <head>
         <meta charset="UTF-8">
@@ -150,6 +150,16 @@
                             </div>
                         </div>
                     </div>
+                    <footer style="margin: 10px auto" class="panel-footer">
+                        <span style="margin: 0px;" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                            <a style="margin-left: 0px; font-size: 12px; color: #fbd46d" th:href="@{'/mutual-funds/list/page/' + ${i}}">[[${i}]]</a>
+                            &nbsp; &nbsp;
+                        </span>
+                    </footer>
+                    <!-- <nav aria-label="pagination" class="pagination mx-auto">
+                        <button class="btn btn-secondary my-2 mx-2">Previous Page</button>
+                        <button class="btn btn-secondary my-2 mx-2">Next Page</button>
+                    </nav> -->
                 </div>
             </div>
         </content>
