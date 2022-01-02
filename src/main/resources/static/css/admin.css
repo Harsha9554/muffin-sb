@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+    font-weight: 600;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: 150px;
+}
+
+.navbar {
+    background-color: #41444b;
+}
+
+.brand {
+    margin-left: 100px;
+    font-weight: 800;
+    font-size: 22px;
+    color: #fbd46d;
+    text-decoration: none;
+    padding: 0px 10px;
+}
+
+.brand:hover {
+    color: rgba(251, 212, 109, 0.5);
+}
+
+.btn {
+    color: #41444b;
+    font-weight: 700;
+    background-color: #fbd46d;
+    border-color: #fbd46d;
+    padding: 5px 12px;
+}
+
+.btn:hover {
+    background-color: #41444b;
+    color: #fbd46d;
+    border-color: #fbd46d;
+}
+
+.dropdown-menu {
+    background-color: #fbd46d;
+    border-color: #fbd46d;
+}
+
+.dropdown-menu li a {
+    color: #41444b;
+    font-weight: 600;
+}
+
+.dropdown-item:hover {
+    background-color: #41444b;
+    color: #fbd46d;
+    border-radius: 5px;
+}
+
+.dropdown {
+    margin-left: 30px;
+}
+
+html body {
+    background-color: rgba(65, 68, 75, 0.9);
+}
+
+.jumbotron {
+    margin: 60px 40px;
+    padding: 30px 20px;
+    background-color: #41444b;
+    color: #fbd46d;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.display-1 {
+    font-size: 85px;
+    font-weight: 800;
+}
+
+.lead {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.muf-logo-1 {
+    position: absolute;
+    left: 2%;
+    top: 60%;
+    rotate: -10deg;
+    z-index: -2;
+    /*-webkit-box-shadow: 20px;*/
+    /*box-shadow: 20px;*/
+}
+
+.muf-logo-2 {
+    position: absolute;
+    right: 2%;
+    top: 10%;
+    rotate: 20deg;
+    z-index: 2;
+    /*-webkit-box-shadow: 20px;*/
+    /*box-shadow: 20px;*/
+    /*padding: auto;*/
+}
+
+.nav-item {
+    margin: 0px 10px;
+}
+
+.jumbo-text {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.dashboard .module table th {
+    width: 100%;
+}
+
+.dashboard .module table td {
+    white-space: nowrap;
+}
+
+.dashboard .module table td a {
+    display: block;
+    padding-right: 0.6em;
+}
+
+/* RECENT ACTIONS MODULE */
+.module ul.actionlist {
+    margin-left: 0;
+}
+
+ul.actionlist li {
+    list-style-type: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card {
+    background-color: #41444b;
+    color: #fbd46d;
+}
+
+.card-body {
+    color: #fbd46d;
+}
+
+.table {
+    color: #fbd46d;
+    border-radius: 20px;
+    border-color: #41444b;
+}
+/*# sourceMappingURL=dashboard.css.map */
+
+.display-nf {
+    font-size: 32px;
+    font-weight: 800;
+}

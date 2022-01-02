@@ -60,8 +60,8 @@ public class UserServiceImpl implements UserService {
         return collection.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
-    @Override
-    public List<User> getAll() {
-        return userRepository.findAll();
-    }
+//    @Override
+//    public List<User> getAll() {
+//        return userRepository.findAll();
+//    }
 }
