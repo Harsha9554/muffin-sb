@@ -34,6 +34,8 @@
                                     sec:authentication="principal.username"></span></a>
                             <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" th:href="@{/user/home}">Home</a></li>
+<!--                                <li><a class="dropdown-item" th:if="${userx.getId() == 1}"-->
+<!--                                        th:href="@{/admin/dashboard}">Admin Dashboard</a></li>-->
                                 <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -46,112 +48,112 @@
             </div>
         </nav>
         <content>
-<!--            <div class="row funds-panel">-->
-<!--                <div class="card filters col-2 ">-->
-<!--                    <form action="">-->
-<!--                        <div class="filter-title card-header"> Fliter Options </div>-->
-<!--                        <div class="filter-body card-body">-->
-<!--                            <div class="filter-option">-->
-<!--                                <label class="filter-label">Fund Type</label>-->
-<!--                                <br>-->
-<!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
-<!--                                    <option selected></option>-->
-<!--                                    <option value="1">Equity</option>-->
-<!--                                    <option value="2">NICE</option>-->
-<!--                                    <option value="3">Three</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="filter-option">-->
-<!--                                <label class="filter-label">Sort Type</label>-->
-<!--                                <br>-->
-<!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
-<!--                                    <option selected></option>-->
-<!--                                    <option value="1">Equity</option>-->
-<!--                                    <option value="2">NICE</option>-->
-<!--                                    <option value="3">Three</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="filter-option">-->
-<!--                                <label class="filter-label">Category</label>-->
-<!--                                <br>-->
-<!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
-<!--                                    <option selected></option>-->
-<!--                                    <option value="1">Equity</option>-->
-<!--                                    <option value="2">NICE</option>-->
-<!--                                    <option value="3">Three</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="filter-option">-->
-<!--                                <label class="filter-label">Sub-Category</label>-->
-<!--                                <br>-->
-<!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
-<!--                                    <option selected></option>-->
-<!--                                    <option value="1">Equity</option>-->
-<!--                                    <option value="2">NICE</option>-->
-<!--                                    <option value="3">Three</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="filter-option">-->
-<!--                                <label class="filter-label">Plan</label>-->
-<!--                                <br>-->
-<!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
-<!--                                    <option selected></option>-->
-<!--                                    <option value="1">Equity</option>-->
-<!--                                    <option value="2">NICE</option>-->
-<!--                                    <option value="3">Three</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="filter-option">-->
-<!--                                <label class="filter-label">Fund House</label>-->
-<!--                                <br>-->
-<!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
-<!--                                    <option selected></option>-->
-<!--                                    <option value="1">Equity</option>-->
-<!--                                    <option value="2">NICE</option>-->
-<!--                                    <option value="3">Three</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                    <div style="margin: 0px 10px;" class="filter-form-submit btn  btn-secondary my-2">Filter</div>-->
-<!--                </div>-->
-                <div style="margin: 15px auto" class="funds col-10 card">
-                    <div class="funds-title card-header">Mutual Funds</div>
-                    <div th:each="fund: ${fundx}">
-                        <div style="margin:10px auto" class="fund card col-11">
-                            <div class="fund-content row">
-                                <div class="title col-7">
-                                    <div class="fund-data">
-                                        <a class="fund-name" th:href="@{/mutual-funds/list/__${fund.getCode()}__}"
-                                            th:text="${fund.getName()}"></a>
-                                        <div class=" sub-details">
-                                            <span th:text="${fund.getCategory()}" class=""></span> - <span
-                                                th:text="${fund.getSubCategory()}" class=""></span>
-                                        </div>
+            <!--            <div class="row funds-panel">-->
+            <!--                <div class="card filters col-2 ">-->
+            <!--                    <form action="">-->
+            <!--                        <div class="filter-title card-header"> Fliter Options </div>-->
+            <!--                        <div class="filter-body card-body">-->
+            <!--                            <div class="filter-option">-->
+            <!--                                <label class="filter-label">Fund Type</label>-->
+            <!--                                <br>-->
+            <!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
+            <!--                                    <option selected></option>-->
+            <!--                                    <option value="1">Equity</option>-->
+            <!--                                    <option value="2">NICE</option>-->
+            <!--                                    <option value="3">Three</option>-->
+            <!--                                </select>-->
+            <!--                            </div>-->
+            <!--                            <div class="filter-option">-->
+            <!--                                <label class="filter-label">Sort Type</label>-->
+            <!--                                <br>-->
+            <!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
+            <!--                                    <option selected></option>-->
+            <!--                                    <option value="1">Equity</option>-->
+            <!--                                    <option value="2">NICE</option>-->
+            <!--                                    <option value="3">Three</option>-->
+            <!--                                </select>-->
+            <!--                            </div>-->
+            <!--                            <div class="filter-option">-->
+            <!--                                <label class="filter-label">Category</label>-->
+            <!--                                <br>-->
+            <!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
+            <!--                                    <option selected></option>-->
+            <!--                                    <option value="1">Equity</option>-->
+            <!--                                    <option value="2">NICE</option>-->
+            <!--                                    <option value="3">Three</option>-->
+            <!--                                </select>-->
+            <!--                            </div>-->
+            <!--                            <div class="filter-option">-->
+            <!--                                <label class="filter-label">Sub-Category</label>-->
+            <!--                                <br>-->
+            <!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
+            <!--                                    <option selected></option>-->
+            <!--                                    <option value="1">Equity</option>-->
+            <!--                                    <option value="2">NICE</option>-->
+            <!--                                    <option value="3">Three</option>-->
+            <!--                                </select>-->
+            <!--                            </div>-->
+            <!--                            <div class="filter-option">-->
+            <!--                                <label class="filter-label">Plan</label>-->
+            <!--                                <br>-->
+            <!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
+            <!--                                    <option selected></option>-->
+            <!--                                    <option value="1">Equity</option>-->
+            <!--                                    <option value="2">NICE</option>-->
+            <!--                                    <option value="3">Three</option>-->
+            <!--                                </select>-->
+            <!--                            </div>-->
+            <!--                            <div class="filter-option">-->
+            <!--                                <label class="filter-label">Fund House</label>-->
+            <!--                                <br>-->
+            <!--                                <select style="width: 100%;" class="custom-select custom-select-lg mb-3">-->
+            <!--                                    <option selected></option>-->
+            <!--                                    <option value="1">Equity</option>-->
+            <!--                                    <option value="2">NICE</option>-->
+            <!--                                    <option value="3">Three</option>-->
+            <!--                                </select>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </form>-->
+            <!--                    <div style="margin: 0px 10px;" class="filter-form-submit btn  btn-secondary my-2">Filter</div>-->
+            <!--                </div>-->
+            <div style="margin: 15px auto" class="funds col-10 card">
+                <div class="funds-title card-header">Mutual Funds</div>
+                <div th:each="fund: ${fundx}">
+                    <div style="margin:10px auto" class="fund card col-11">
+                        <div class="fund-content row">
+                            <div class="title col-7">
+                                <div class="fund-data">
+                                    <a class="fund-name" th:href="@{/mutual-funds/list/__${fund.getCode()}__}"
+                                        th:text="${fund.getName()}"></a>
+                                    <div class=" sub-details">
+                                        <span th:text="${fund.getCategory()}" class=""></span> - <span
+                                            th:text="${fund.getSubCategory()}" class=""></span>
                                     </div>
                                 </div>
-                                <div class=" returns col-4">
-                                    <div class="col-4 return mx-3 my">
-                                        <label>1Y</label>
-                                        <hr>
-                                        <p th:text="${fund.getReturns().getOneY()}">%</p>
-                                    </div>
-                                    <div class="col-4 return mx-3">
-                                        <label>3Y</label>
-                                        <hr>
-                                        <p th:text="${fund.getReturns().getThreeY()}">%</p>
-                                    </div>
-                                    <div class="col-4 return mx-3">
-                                        <label>5Y</label>
-                                        <hr>
-                                        <p th:text="${fund.getReturns().getFiveY()}">%</p>
-                                    </div>
+                            </div>
+                            <div class=" returns col-4">
+                                <div class="col-4 return mx-3 my">
+                                    <label>1Y</label>
+                                    <hr>
+                                    <p th:text="${fund.getReturns().getOneY()}">%</p>
+                                </div>
+                                <div class="col-4 return mx-3">
+                                    <label>3Y</label>
+                                    <hr>
+                                    <p th:text="${fund.getReturns().getThreeY()}">%</p>
+                                </div>
+                                <div class="col-4 return mx-3">
+                                    <label>5Y</label>
+                                    <hr>
+                                    <p th:text="${fund.getReturns().getFiveY()}">%</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <footer style="margin: 10px auto" class="panel-footer">
-                        <span style="margin: 0px;" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                </div>
+                <footer style="margin: 10px auto" class="panel-footer">
+                    <span style="margin: 0px;" th:each="i: ${#numbers.sequence(1, totalPages)}">
                             <a style="margin-left: 0px; font-size: 12px; color: #fbd46d" th:href="@{'/mutual-funds/list/page/' + ${i}}">[[${i}]]</a>
                             &nbsp; &nbsp;
                         </span>

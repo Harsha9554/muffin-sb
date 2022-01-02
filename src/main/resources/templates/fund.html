@@ -47,6 +47,8 @@
                                     sec:authentication="principal.username"></span></a>
                             <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" th:href="@{/user/home}">Home</a></li>
+<!--                                <li><a class="dropdown-item" th:if="${userx.getId() == 1}"-->
+<!--                                        th:href="@{/admin/dashboard}">Admin Dashboard</a></li>-->
                                 <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">

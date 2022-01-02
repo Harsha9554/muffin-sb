@@ -31,6 +31,8 @@
                                     sec:authentication="principal.username"></span></a>
                             <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" th:href="@{/user/home}">Home</a></li>
+<!--                                <li><a class="dropdown-item" th:if="${userx.getId() == 1}"-->
+<!--                                        th:href="@{/admin/dashboard}">Admin Dashboard</a></li>-->
                                 <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -83,33 +85,34 @@
             </div>
             <div class="card shadow mx-5">
                 <div class="card-header" th:object="${tfundx}">Funds Tracking</div>
-<!--                <label>TF SIZE</label>-->
-<!--                <h1 th:text="${tfundx.size()}"></h1>-->
+                <!--                <label>TF SIZE</label>-->
+                <!--                <h1 th:text="${tfundx.size()}"></h1>-->
                 <div th:if="${tfundx.size() == 0}">
                     <p class="my-4 mx-4 display-nf">No Funds Tracking</p>
                 </div>
                 <div th:if="${tfundx.size() > 0}">
                     <div class="card-body">
-                        <table class="table" >
+                        <table class="table">
                             <thead>
-                            <tr>
-                                <th class="th" scope="col">Tracking ID</th>
-                                <th class="th" scope="col">Code</th>
-                                <th class="th" scope="col">Fund Name</th>
-                                <th class="th" scope="col"></th>
-                            </tr>
+                                <tr>
+                                    <th class="th" scope="col">Tracking ID</th>
+                                    <th class="th" scope="col">Code</th>
+                                    <th class="th" scope="col">Fund Name</th>
+                                    <th class="th" scope="col"></th>
+                                </tr>
                             </thead>
                             <tbody th:each="tfund: ${tfundx}">
-                            <tr>
-                                <th class="th" scope="col" th:text="${tfund.getId()}">S.No</th>
-                                <th scope="row" th:text="${tfund.getFundCode()}">ABCED-GH</th>
-                                <th class="th" scope="col" th:text="${tfund.getFundName()}">Code</th>
-                                <th scope="row"><span><a class="btn btn-secondary" th:href="@{/mutual-funds/list/__${tfund.getFundCode()}__}">View Fund</a></span></th>
-                            </tr>
+                                <tr>
+                                    <th class="th" scope="col" th:text="${tfund.getId()}">S.No</th>
+                                    <th scope="row" th:text="${tfund.getFundCode()}">ABCED-GH</th>
+                                    <th class="th" scope="col" th:text="${tfund.getFundName()}">Code</th>
+                                    <th scope="row"><span><a class="btn btn-secondary"
+                                                th:href="@{/mutual-funds/list/__${tfund.getFundCode()}__}">View
+                                                Fund</a></span></th>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </main>

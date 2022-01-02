@@ -25,13 +25,18 @@
                             <a class="btn btn-secondary shadow-sm" aria-current="page"
                                 th:href="@{/mutual-funds/list}">Track Funds</a>
                         </li>
+                        <li class="nav-item" th:if="${userx.getId() == 1}">
+                            <a class="btn btn-secondary shadow-sm" aria-current="page"
+                               th:href="@{/admin/dashboard}">Admin Dashboard</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false"> <span
                                     sec:authentication="principal.username"></span></a>
                             <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" th:href="@{/user/home}">Home</a></li>
-                                <li><a class="dropdown-item" th:if="${userx.getId() == 1}" th:href="@{/admin/dashboard}">Admin Dashboard</a></li>
+<!--                                <li><a class="dropdown-item" th:if="${userx.getId() == 1}"-->
+<!--                                        th:href="@{/admin/dashboard}">Admin Dashboard</a></li>-->
                                 <li><a class="dropdown-item" th:href="@{/user/dashboard}">Dashboard</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -43,7 +48,7 @@
                 </div>
             </div>
         </nav>
-        <main class="main" >
+        <main class="main">
             <div class="jumbotron shadow mx-5">
                 <h1 class="display-4">Welcome <span th:text="${userx.getCompleteName()}">Sai SriHarsha Griddaluru</span>
                 </h1>
